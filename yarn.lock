@@ -2,9 +2,17 @@
 # yarn lockfile v1
 
 
-fetch-polyfill@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/fetch-polyfill/-/fetch-polyfill-0.8.2.tgz#3e1486442da5b53c43e66a6951eaa0fd5d23f1ac"
+colorspaces@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/colorspaces/-/colorspaces-0.1.5.tgz#7a5a9aef530698de08909d85ed00007ff8c31ef9"
+
+colorsys@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/colorsys/-/colorsys-1.0.21.tgz#f35044e182376f6ec4730668ddc0ad3269530523"
+
+dotenv@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
 
 node-fetch@^2.2.0:
   version "2.2.0"
