@@ -1,13 +1,16 @@
 const fetch = require('node-fetch')
 const Log = require('./Logger')
 const colorsys = require('colorsys')
+const colors = require('colors/safe');
+
 const LOGGING_TAG = "HueLight"
+const LOGGING_COLOR = colors.cyan
 
 class HueLight {
   static async build(bridgeAddress, id, interval) {
     let light = new HueLight()
 
-    Log(LOGGING_TAG, "Light Initialized")
+    Log(LOGGING_TAG, "Light Initialized", LOGGING_COLOR)
     light.bridgeAddress = bridgeAddress
     light.id = id
 
@@ -21,7 +24,7 @@ class HueLight {
     let rgbColor = this.getRGB((this.status.state.hue / 65535) * 360, (this.status.state.sat / 254) * 100, (this.status.state.bri / 254) * 100)
     if (JSON.stringify(rgbColor) !== JSON.stringify(this.rgbColor)) {
       this.rgbColor = rgbColor
-      Log(LOGGING_TAG, "Color Updated")
+      Log(LOGGING_TAG, "Color Updated", LOGGING_COLOR)
     }
   }
 

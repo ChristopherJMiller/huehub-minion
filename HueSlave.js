@@ -1,5 +1,8 @@
 const fetch = require('node-fetch')
 const Log = require('./Logger')
+const colors = require('colors/safe');
+
+const LOGGING_COLOR = colors.green
 
 class HueSlave {
   static async build(hubAddress, lightContollerID) {
@@ -11,7 +14,7 @@ class HueSlave {
 
     await slave.updateSlave(hubAddress, lightContollerID)
   
-    Log(slave.LOGGER_TAG, "Hue Slave Initialized, Watching Controller id " + slave.lightContollerID + ", Hue Light Selected is " + slave.hueID)
+    Log(slave.LOGGER_TAG, "Hue Slave Initialized, Watching Controller id " + slave.lightContollerID + ", Hue Light Selected is " + slave.hueID, LOGGING_COLOR)
 
     return slave
   }
@@ -36,7 +39,7 @@ class HueSlave {
 
   async updateController() {
     await this.updateSlave(this.hubAddress, this.lightContollerID)
-    Log(this.LOGGER_TAG, "Slave Updated, Watching Cid " + this.lightContollerID + " & Hid " + this.hueID)
+    Log(this.LOGGER_TAG, "Slave Updated, Watching Cid " + this.lightContollerID + " & Hid " + this.hueID, LOGGING_COLOR)
     if (this.callback != null) {
       this.callback()
     }
@@ -59,7 +62,7 @@ class HueSlave {
           }
           resolve(controller)
         }).catch(function(err) {
-          console.log('parsing failed', err)
+          throw err
         })
     })
   }
